@@ -20,14 +20,11 @@
 
 <div class="content">
             <div class="title m-b-md">
-        Pizza List
+        Pizza List - {{ $id }}
             </div>
-   
-          @foreach ($pizzas as $pizza)
-              <div>
-               {{ $loop->index }} .   {{ $pizza['type'] }} -{{ $pizza['base'] }}
-              </div>
-          @endforeach
+     
+         
+        
         </div>
     </div>
 
