@@ -47,4 +47,10 @@ class KebabController extends Controller
 
         return view('kebab.show', ['kebab' => $kebab]);
     }
+    public function destroy($id)
+    {
+        $kebab = Kebab::findOrfail($id);
+        $kebab->delete();
+        return redirect('/kebab');
+    }
 }

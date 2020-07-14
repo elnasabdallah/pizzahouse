@@ -8,9 +8,9 @@
     <form action="/kebab" method="POST">
         @csrf
         <label for="name">Your name</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" required>
         <label for="type">Choose kebab type:</label>
-        <select name="type" id="type">
+        <select name="type" id="type" required>
             <option value=""></option>
             <option value="donner">Donner</option>
             <option value="lahma jum">Lahma Jum</option>
@@ -18,7 +18,7 @@
 
         </select>
         <label for="base">Choose base type:</label>
-        <select name="base" id="base">
+        <select name="base" id="base" required>
             <option value=""></option>
             <option value="bread ">Bread</option>
             <option value="brot">garlic </option>

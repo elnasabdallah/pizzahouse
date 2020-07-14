@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KebabController;
 use App\Http\Controllers\PizzaController;
+use App\kebab;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -25,14 +26,13 @@ Route::post('/pizzas', 'PizzaController@store')->name('pizzas.store');
 Route::get('/pizzas/{id}', 'PizzaController@show')->name('pizzas.show')->middleware('auth');
 Route::delete('/pizzas/{id}', 'PizzaController@destroy')->name('pizzas.destroy')->middleware('auth');
 
-Route::get('/kebab', 'KebabController@index');
+Route::get('/kebab', 'KebabController@index')->name('kebab.index')->middleware('auth');
 Route::get('/kebab/create', 'KebabController@create')->name('kebab.create');
-Route::post('/kebab', 'KebabController@store');
-Route::get('/kebab/{id}', 'KebabController@show');
+Route::post('/kebab', 'KebabController@store')->name('kebab.store');
+Route::get('/kebab/{id}', 'KebabController@show')->name('kebab.show')->middleware('auth');
+Route::delete('/kebab/{id}', 'KebabController@destroy')->name('kebab.destroy')->middleware('auth');
 
 
-Auth::routes([
-    'register' => false
-]);
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
